@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.cache.model.mapper.EmployeeMapper">
+    <select id="entityById" resultType="com.springboot.cache.model.entity.Employee" parameterType="java.lang.Integer">
+        select * from employee where id = #{id}
+    </select>
+
+    <select id="updateEmployee" parameterType="com.springboot.cache.model.entity.Employee" resultType="com.springboot.cache.model.entity.Employee">
+        update employee set lastName=#{lastName} where id=#{id}
+    </select>
+
+    <delete id="deleteEmp" parameterType="java.lang.Integer">
+        delete from employee where id=#{id}
+    </delete>
+
+    <select id="getByLastName" parameterType="java.lang.String" resultType="com.springboot.cache.model.entity.Employee">
+        select * from employee where lastName=#{lastName}
+    </select>
+</mapper>
